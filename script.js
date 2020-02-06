@@ -1,5 +1,7 @@
 const playerOne = document.querySelector("#player1")
 const playerTwo = document.querySelector("#player2")
+const buttons = document.querySelectorAll("button")
+
 const buttonsValues = []
 let playerOnePoint = 0;
 let playerTwoPoint = 0;
@@ -10,6 +12,13 @@ const buttonContainer = document.querySelector("#buttons")
 const playerOneScore = document.querySelector(".pointPlayer h2")
 const pointsComputerDisplay = document.querySelector(".pointsComputer h2")
 
+function updateTheScore() {
+  playerOneScore.textContent = playerOnePoint;
+  pointsComputerDisplay.textContent = playerTwoPoint;
+}
+
+updateTheScore()
+
 const randomComputerChoice = () => {
   return buttonsValues[Math.floor(Math.random() * buttonsValues.length)]
 }
@@ -19,14 +28,12 @@ function toggleClass(elementOne, elementwo, classToAddRemove) {
   elementwo.classList.toggle(classToAddRemove)
 }
 
-const buttons = document.querySelectorAll("button")
 
 buttons.forEach(button => {
   buttonsValues.push(button.value)
   button.addEventListener("click", () => {
     toggleClass(playerOne, playerTwo, "shake")
     buttonContainer.classList.add("disabled")
-
     setTimeout(() => {
       toggleClass(playerOne, playerTwo, "shake")
       buttonContainer.classList.remove("disabled")
@@ -75,8 +82,7 @@ function notTie(playerOneChoice, computer) {
 }
 
 function checkWhoWon() {
-  playerOneScore.textContent = playerOnePoint;
-  pointsComputerDisplay.textContent = playerTwoPoint;
+  updateTheScore()
 
   if (playerOnePoint == 2) {
     winImage.classList.remove("hidden");
@@ -95,8 +101,7 @@ function restartGame() {
   setTimeout(() => {
     playerOnePoint = 0;
     playerTwoPoint = 0;
-    playerOneScore.textContent = playerOnePoint;
-    pointsComputerDisplay.textContent = playerTwoPoint;
+    updateTheScore();
     buttonContainer.classList.remove("disabled")
     winImage.classList.add("hidden");
     loseImage.classList.add("hidden")
