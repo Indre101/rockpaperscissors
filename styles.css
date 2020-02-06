@@ -138,3 +138,20 @@ button.paper {
 button.scissors {
   background-image: url(button_scissors.png);
 }
+
+
+.points {
+  width: 10vw;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.points h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 6vw;
+  transform: translateY(1vh);
+}
