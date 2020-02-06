@@ -10,28 +10,25 @@ const buttonContainer = document.querySelector("#buttons")
 const playerOneScore = document.querySelector(".pointPlayer h2")
 const pointsComputerDisplay = document.querySelector(".pointsComputer h2")
 
-
-
-
-
 const randomComputerChoice = () => {
   return buttonsValues[Math.floor(Math.random() * buttonsValues.length)]
 }
 
+function toggleClass(elementOne, elementwo, classToAddRemove) {
+  elementOne.classList.toggle(classToAddRemove)
+  elementwo.classList.toggle(classToAddRemove)
+}
 
 const buttons = document.querySelectorAll("button")
+
 buttons.forEach(button => {
   buttonsValues.push(button.value)
-
   button.addEventListener("click", () => {
-    playerOne.classList.add("shake");
-    playerTwo.classList.add("shake");
-    button.classList.add("disabled");
+    toggleClass(playerOne, playerTwo, "shake")
     buttonContainer.classList.add("disabled")
 
     setTimeout(() => {
-      playerOne.classList.remove("shake");
-      playerTwo.classList.remove("shake");
+      toggleClass(playerOne, playerTwo, "shake")
       buttonContainer.classList.remove("disabled")
       winImage.classList.add("hidden");
       addAClassOfButtonValue(playerTwo, randomComputerChoice())
@@ -46,8 +43,6 @@ buttons.forEach(button => {
 const addAClassOfButtonValue = (player, classToadd) => {
   player.classList.remove(player.classList[1])
   player.classList.add(classToadd)
-
-
 }
 
 function checkTheResult() {
@@ -62,7 +57,6 @@ function checkTheResult() {
   }
   checkWhoWon()
 }
-
 
 function notTie(playerOneChoice, computer) {
   if (playerOneChoice.classList.contains("paper") && playerTwo.classList.contains("rock")) {
@@ -80,24 +74,30 @@ function notTie(playerOneChoice, computer) {
 
 }
 
-
 function checkWhoWon() {
   playerOneScore.textContent = playerOnePoint;
   pointsComputerDisplay.textContent = playerTwoPoint;
 
   if (playerOnePoint == 2) {
     winImage.classList.remove("hidden");
+
     restartGame()
   } else if (playerTwoPoint == 2) {
     loseImage.classList.remove("hidden")
+
     restartGame()
   }
 }
 
+
 function restartGame() {
+  buttonContainer.classList.add("disabled")
   setTimeout(() => {
-    playerOneScore.textContent = 0;
-    pointsComputerDisplay.textContent = 0;
+    playerOnePoint = 0;
+    playerTwoPoint = 0;
+    playerOneScore.textContent = playerOnePoint;
+    pointsComputerDisplay.textContent = playerTwoPoint;
+    buttonContainer.classList.remove("disabled")
     winImage.classList.add("hidden");
     loseImage.classList.add("hidden")
     playerOne.classList.remove(playerOne.classList[1])
