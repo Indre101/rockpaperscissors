@@ -26,7 +26,7 @@ h1 {
 }
 
 .player {
-  transform: scale(var(--rot),1);
+  transform: scale(var(--rot), 1);
   width: 40vw;
   height: 40vw;
   background-size: 100%;
@@ -53,34 +53,43 @@ h1 {
 
 @keyframes shake {
   0% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
+
   16% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
+
   24% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
+
   32% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
+
   48% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
+
   56% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
+
   64% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
+
   80% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
+
   96% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
+
   100% {
-    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
+    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
 }
 
