@@ -6,7 +6,7 @@ let playerTwoPoint = 0;
 const tieImage = document.querySelector("#draw")
 const loseImage = document.querySelector("#lose")
 const winImage = document.querySelector("#win")
-
+const buttonContainer = document.querySelector("#buttons")
 const playerOneScore = document.querySelector(".pointPlayer h2")
 const pointsComputerDisplay = document.querySelector(".pointsComputer h2")
 
@@ -22,11 +22,23 @@ const randomComputerChoice = () => {
 const buttons = document.querySelectorAll("button")
 buttons.forEach(button => {
   buttonsValues.push(button.value)
+
   button.addEventListener("click", () => {
-    winImage.classList.add("hidden");
-    addAClassOfButtonValue(playerTwo, randomComputerChoice())
-    addAClassOfButtonValue(playerOne, event.target.value)
-    checkTheResult()
+    playerOne.classList.add("shake");
+    playerTwo.classList.add("shake");
+    button.classList.add("disabled");
+    buttonContainer.classList.add("disabled")
+
+    setTimeout(() => {
+      playerOne.classList.remove("shake");
+      playerTwo.classList.remove("shake");
+      buttonContainer.classList.remove("disabled")
+      winImage.classList.add("hidden");
+      addAClassOfButtonValue(playerTwo, randomComputerChoice())
+      addAClassOfButtonValue(playerOne, button.value)
+      checkTheResult()
+    }, 1800);
+
   })
 })
 
@@ -34,6 +46,8 @@ buttons.forEach(button => {
 const addAClassOfButtonValue = (player, classToadd) => {
   player.classList.remove(player.classList[1])
   player.classList.add(classToadd)
+
+
 }
 
 function checkTheResult() {
@@ -86,5 +100,9 @@ function restartGame() {
     pointsComputerDisplay.textContent = 0;
     winImage.classList.add("hidden");
     loseImage.classList.add("hidden")
+    playerOne.classList.remove(playerOne.classList[1])
+    playerTwo.classList.remove(playerTwo.classList[1])
   }, 2000);
+
+
 }
