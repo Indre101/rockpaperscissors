@@ -39,8 +39,10 @@ const addAClassOfButtonValue = (player, classToadd) => {
 function checkTheResult() {
 
   if (playerOne.classList.contains(playerTwo.classList[1])) {
-
-    console.log("it's a tie");
+    tieImage.classList.remove("hidden")
+    setTimeout(() => {
+      tieImage.classList.add("hidden")
+    }, 1000);
   } else if (!playerOne.classList.contains(playerTwo.classList[1])) {
     notTie(playerOne, playerTwo)
   }
@@ -80,8 +82,8 @@ function checkWhoWon() {
 
 function restartGame() {
   setTimeout(() => {
-    playerOnePoint = 0;
-    playerTwoPoint = 0;
+    playerOneScore.textContent = 0;
+    pointsComputerDisplay.textContent = 0;
     winImage.classList.add("hidden");
     loseImage.classList.add("hidden")
   }, 2000);
