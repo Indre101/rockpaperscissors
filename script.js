@@ -41,7 +41,7 @@ buttons.forEach(button => {
       addAClassOfButtonValue(playerTwo, randomComputerChoice())
       addAClassOfButtonValue(playerOne, button.value)
       checkTheResult()
-    }, 1800);
+    }, 1850);
 
   })
 })
@@ -68,13 +68,10 @@ function checkTheResult() {
 function notTie(playerOneChoice, computer) {
   if (playerOneChoice.classList.contains("paper") && playerTwo.classList.contains("rock")) {
     playerOnePoint++
-
   } else if (playerOneChoice.classList.contains("scissors") && playerTwo.classList.contains("paper")) {
     playerOnePoint++
-
   } else if (playerOneChoice.classList.contains("rock") && playerTwo.classList.contains("scissors")) {
     playerOnePoint++
-
   } else {
     playerTwoPoint++
   }
@@ -83,7 +80,6 @@ function notTie(playerOneChoice, computer) {
 
 function checkWhoWon() {
   updateTheScore()
-
   if (playerOnePoint == 2) {
     winImage.classList.remove("hidden");
 
